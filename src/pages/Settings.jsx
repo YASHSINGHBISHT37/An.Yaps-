@@ -1,0 +1,125 @@
+import React, { useState, useEffect } from 'react'
+
+const Settings = () => {
+    const [openTab, setOpenTab] = useState(null)
+    const [closing, setClosing] = useState(false)
+
+    function closeTab() {
+        setClosing(true)
+
+        setTimeout(() => {
+            setOpenTab(null)
+            setClosing(false)
+        }, 300)
+    }
+
+    useEffect(() => {
+        if (openTab) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [openTab])
+
+    const settingTabs = [
+        { name: 'Appearance', icon: 'Appearence.png', options: ['Light', 'Dark', 'System'] },
+        {
+            name: "Language", icon: "language.png",
+            options: [
+                "English", "Hindi", "Spanish", "French", "German", "Chinese (Simplified)", "Chinese (Traditional)", "Japanese",
+                "Korean", "Italian", "Portuguese", "Russian", "Arabic", "Bengali", "Urdu", "Turkish", "Tamil", "Telugu",
+                "Marathi", "Gujarati", "Malayalam", "Kannada", "Punjabi", "Indonesian", "Thai", "Vietnamese"
+            ],
+        },
+        { name: "Notifications", icon: "notification.png", options: ["On", "Off"] },
+        { name: "Privacy", icon: "Privacy.png", options: ["Public", "Friends", "Private"] },
+        { name: "Sound", icon: "Sound.png", options: ["On", "Vibrate", "Mute"] },
+        { name: 'Storage', icon: 'storage.png', options: ['Manage Cache', 'Clear Data'] },
+        { name: 'Account', icon: 'account.png', options: ['Edit Profile', 'Logout'] },
+        { name: 'Support', icon: 'support.png', options: ['Contact Support', 'FAQ'] },
+        { name: 'Feedback', icon: 'feedback.png', options: ['Send Feedback'] },
+        { name: 'About', icon: 'about.png', options: ['App by Yash Singh Bisht', 'Version 1.0', 'Email: Yashbisht0007@gmail.com'] },
+        { name: 'Github', icon: 'github.png', options: ['Visit Repository'] },
+    ]
+
+    return (
+        <div className='relative z-[999] w-screen min-h-screen bg-[#161616] px-4 py-4 select-none'>
+
+            {/* Background */}
+            <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+                <div className='fixed top-0 left-0 bg-[#161616]/20 w-full h-screen'></div>
+                <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
+                <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-600 blur-2xl -left-10 rotate-18 -z-1 top-65 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-700 blur-2xl -left-10 rotate-18 -z-1 top-80 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
+                <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
+                <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
+            </div>
+
+            <h1 className='text-7xl tracking-tighter mb-10 mt-3 text-[#161616]/80 font-bold'>Settings</h1>
+
+            {/* Tabs */}
+            <div className='Tab-Cont space-y-1.5 z-[999999]'>
+                {settingTabs.map((tab, i) => (
+                    <div key={i} className='Tab w-full h-14 cursor-pointer rounded-2xl border border-white/10 bg-white/8 p-3 flex items-center justify-between active:bg-white/20 active:scale-90 hover:bg-white/10 transition-all duration-150 ease-in-out'
+                        onClick={() => setOpenTab(tab)}>
+
+                        <div className='flex items-center text-[1.9vh] opacity-90'>
+                            <img className='w-5 h-5 mr-2' src={`icons/${tab.icon}`} />
+                            <h1>{tab.name}</h1>
+                        </div>
+
+                        <img className={`w-4.5 h-4.5 opacity-80 transition-transform  duration-250 ease-in-out
+                            ${openTab?.name === tab.name ? "rotate-[90deg]" : "rotate-[0deg]"}`}
+                            src="icons/next.png" />
+                    </div>
+                ))}
+
+                <h1 className='text-center text-[1.4vh] opacity-40 mt-6 mb-18'>App by Yash Singh Bisht.</h1>
+            </div>
+
+            {/* Background Overlay */}
+            {(openTab || closing) && (
+                <div className={`fixed inset-0 bg-[#161616] transition-opacity duration-300 ease-out
+                    ${openTab && !closing ? 'opacity-80' : 'opacity-0'}
+                    `}
+                    onClick={closeTab}></div>
+            )}
+
+            {/* Tab Options */}
+            <div className={`Tab-Options fixed w-full max-w-md h-auto left-0 bottom-0 px-4 pt-5 bg-white/7 backdrop-blur-[10vh] rounded-t-4xl transform transition-all duration-300 ease-in-out
+                ${openTab && !closing ? "translate-y-0" : "translate-y-full"}`}>
+
+                {openTab && (
+                    <div className='Title w-full flex px-2 justify-center items-center'>
+                        <h1 className='text-5xl tracking-tight pb-3 text-white/90'>{openTab.name}</h1>
+                        {/* <img src="icons/close.png" className='h-4 cursor-pointer active:scale-70 transition-all duration-150 ease-in-out' onClick={closeTab} /> */}
+                    </div>
+                )}
+
+
+                <div className='Options max-h-[40vh] space-y-2 overflow-y-auto'>
+                    {openTab?.options?.map((option, id) => (
+                        <div
+                            key={id}
+                            className={`active:scale-93  active:bg-white/14 hover:bg-white/10 transition-all duration-250 ease-in-out rounded-2xl p-4 bg-white/5 border border-white/10 cursor-pointer ${id === 0 ? 'mt-3' : ''} ${id === openTab.options.length - 1 ? 'mb-3' : ''}`}>
+                            <h1>{option}</h1>
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+
+
+
+        </div >
+    )
+}
+
+export default Settings

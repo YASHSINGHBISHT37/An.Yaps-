@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: reg;
+  src: url('/fonts/NeueMontreal-Regular.otf');
+}
+
+@font-face {
+  font-family: lig;
+  src: url('/fonts/NeueMontreal-Light.otf');
+}
+
+
+body {
+  font-family: reg;
+  color: white;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;      
+}
+
+.move {
+  animation: move 4s linear infinite alternate
+}
+
+@keyframes move {
+  from {
+    transform: translate(60%, 30%) skew(10deg, 5deg);
+  }
+
+  to {
+    transform: translate(30%, 10%) skew(0deg, 0deg);
+  }
+}
