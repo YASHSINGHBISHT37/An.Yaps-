@@ -31,7 +31,7 @@ const Notify = ({ onClose }) => {
                 </div>
             </div> */}
 
-            <div className={`Baclground-Overlay absolute w-screen h-screen bg-[#161616]/60 top-0 opacity transition-opacity duration-600 ${visible ? 'opacity-100' : 'opacity-0'}`} onClick={handleClose}></div>
+            <div className={`Baclground-Overlay absolute w-screen h-screen bg-[#161616]/0 top-0 opacity transition-opacity duration-600 ${visible ? 'opacity-100' : 'opacity-0'}`} onClick={handleClose}></div>
 
             <div className={`fixed w-full h-104 bg-[white]/90 backdrop-blur-[2vh] rounded-t-3xl p-4 border-t border-[#161616]/70 transform transition-transform duration-800
             ${closing ? 'bottom-0' : visible ? 'bottom-0' : 'bottom-[-60vh]'}
