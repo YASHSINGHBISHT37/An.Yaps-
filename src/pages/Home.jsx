@@ -3,7 +3,7 @@ import TopNav from '../components/Navigation/TopNav'
 import BottomNav from '../components/Navigation/BottomNav'
 import StockDetails from '../components/Home/StockDetails'
 import Stock from '../components/Home/Stock'
-import AboutApp from '../components/aboutApp/aboutApp'
+
 import Favourites from './Favourites'
 import Notify from './Notify'
 import Settings from './Settings'
