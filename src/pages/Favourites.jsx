@@ -26,12 +26,12 @@ const Favourites = () => {
     }
 
     return (
-        <div className='relative z-[99999] w-screen min-h-screen bg-[#161616] px-4 py-4 bg-amber-90 select-none'>
+        <div className='relative z-[9999] w-screen min-h-screen bg-[#161616] px-4 py-4 bg-amber-90'>
             {/* <h1 className="fixed z-[99999] font-bold text-[#161616]/80 mr-12 text-[2.2vh]">An.Yaps®</h1> */}
 
             {/* Background layers */}
             <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
-                <div className='fixed top-0 left-0 bg-[#161616]/20 w-full h-screen'></div>
+                <div className='fixed top-0 left-0 bg-[#161616]/7 w-full h-screen'></div>
                 <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
                 <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
                 <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
@@ -55,8 +55,8 @@ const Favourites = () => {
                      ${i !== arr.length - 1 ? 'border-b border-white/10' : 'mb-19'}`}>
 
                         {/* Remove Button */}
-                        <div className='Remove-Button text-right absolute text-red-500 right-3.5 top-1 bg-[#161616]/70 font-bold text-[1.2vh] opacity-80 cursor-pointer border-1
-                        border-white/20 rounded-full px-1.5 active:scale-80 transition duration-150 ease-in-out active:bg-white/5 z-50'
+                        <div className='Remove-Button text-right absolute text-red-500 right-3.5 top-1 bg-[#161616]/70 font-bold text-[1.2vh] opacity- cursor-pointer border-1
+                        border-white/20 rounded-full px-1.5 active:scale-92 transition-all duration-250 ease-in-out active:bg-[#161616]/40 z-50'
                             onClick={(e) => {
                                 e.stopPropagation()
                                 setRemovingIndex(i)
@@ -87,8 +87,6 @@ const Favourites = () => {
                     </div>
                 ))}
             </div>
-
-
 
         </div>
     )

@@ -79,7 +79,7 @@ const Stock = () => {
             </div> */}
 
 
-            <div className='w-full h-full mt-5 px-4 rounded-4xl border- border-white/30 py-4 flex flex-col items-center gap-2 select-none'>
+            <div className='w-full h-full mt-5 px-4 rounded-4xl border- border-white/30 py-4 flex flex-col items-center gap-2'>
 
                 <div className="Price z-50 data w-full h-auto flex justify-between items-start bg-amber-00 pointer-events-none">
 
@@ -110,7 +110,7 @@ const Stock = () => {
                     </div>
 
                     {times.map((t, i) => (
-                        <h1 key={t} className={`cursor-pointer mx-1 w-10 flex justify-center select-none active:scale-80 transition-all duration-150 ease-in-out
+                        <h1 key={t} className={`cursor-pointer mx-1 w-10 flex justify-center active:scale-80 transition-all duration-150 ease-in-out
                                     ${i == times.length - 1 ? 'tracking-tighter ' : ''}`}
                             onClick={() => setGtime(t)}> {t} </h1>
                     ))}
