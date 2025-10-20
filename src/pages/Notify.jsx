@@ -21,7 +21,7 @@ const Notify = ({ onClose }) => {
 
 
     return (
-        <div className='fixed top-0 z-[99999] w-screen h-screen transition-all duration-400 ease-in-out flex flex-col items-center justify-start pt-20'>
+        <div className='fixed top-0 z-1 w-screen h-screen transition-all duration-400 ease-in-out flex flex-col items-center justify-start pt-20'>
 
             {/* <div className='fixed bottom-0 w-full h-104 bg-[#161616] backdrop-blur-[1vh] rounded-t-3xl p-4 border-white/30'>
                 <h1 className='text-6xl tracking-tighter mb-2 text-white/80 font-bold'>Notifications</h1>

@@ -26,11 +26,11 @@ const Favourites = () => {
     }
 
     return (
-        <div className='relative z-[9999] w-screen min-h-screen bg-[#161616] px-4 py-4 bg-amber-90'>
+        <div className='relative z-1 w-screen min-h-screen bg- px-4 py-4 bg-amber-90'>
             {/* <h1 className="fixed z-[99999] font-bold text-[#161616]/80 mr-12 text-[2.2vh]">An.Yaps®</h1> */}
 
             {/* Background layers */}
-            <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+            {/* <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
                 <div className='fixed top-0 left-0 bg-[#161616]/7 w-full h-screen'></div>
                 <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
                 <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
@@ -40,7 +40,7 @@ const Favourites = () => {
                 <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
                 <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
                 <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
-            </div>
+            </div> */}
 
             <h1 className='text-7xl tracking-tighter mb-10 mt-3 text-[#161616]/80 font-bold'>Favorites</h1>
 

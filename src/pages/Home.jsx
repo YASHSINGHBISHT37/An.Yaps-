@@ -1,30 +1,24 @@
 import React, { useState } from 'react'
-import TopNav from '../components/Navigation/TopNav'
-import BottomNav from '../components/Navigation/BottomNav'
+// import Stock from '../components/Home/Stock'
 import StockDetails from '../components/Home/StockDetails'
-import Stock from '../components/Home/Stock'
-import AboutApp from '../components/aboutApp/aboutApp'
-import Favourites from './Favourites'
-import Notify from './Notify'
-import Settings from './Settings'
-import Login from '../components/Login'
-import Explore from './Explore'
 
 const Home = () => {
     const [showNotify, setShowNotify] = useState(false)
     // const [showFavourites, setShowFavourites] = useState(false)
 
     return (
-        <div className='w-screen h-screen z-[999997] bg-[#161616] select-none'>
+        <div className='w-screen h-screen z-[999997] bg- select-none'>
+
+            <h1 className='text-[#161616] relative text-9xl z-50 tracking-tighter font-bold'>Home</h1>
 
             {/* Background-Gradient */}
-            <div className='Background-Gradient fixed bg-[#161616] w-screen h-screen'>
+            {/* <div className='Background-Gradient fixed bg-[#161616] w-screen h-screen'>
                 <div className="absolute rounded- bg-blue-900 blur-2xl -z-1 top-28 w-full h-3 0"></div>
                 <div className="absolute rounded- bg-blue-700 blur-2xl -z-1 top-40 w-full h-20"></div>
                 <div className="absolute rounded- bg-blue-600 blur-2xl -z-1 top-55 w-full h-20"></div>
                 <div className="absolute rounded- bg-blue-500 blur-2xl -z-1 top-70 w-full h-20"></div>
                 <div className="absolute rounded- bg-blue-300 blur-2xl -z-1 top-84 w-full h-full"></div>
-            </div>
+            </div> */}
             {/* <div className="fixed z-1">
                 <div className="absolute bg-white blur-2xl -left-10 rotate-18 -z-1 -top-12 w-[80vh] h-80"></div>
                 <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
@@ -39,11 +33,16 @@ const Home = () => {
             {/* <AboutApp /> */}
             {/* <Login/> */}
 
-            <TopNav />
-            <BottomNav />
+            {/* <TopNav /> */}
+            {/* <BottomNav /> */}
 
-            <Stock />
-            <StockDetails />
+            {/* <Stock /> */}
+            {/* <StockDetails /> */}
+
+            {/* <h1>Home</h1> */}
+
+            {/* <PeerScreenTransition/> */}
+            
 
             {/* <Favourites /> */}
             {/* <Explore/> */}

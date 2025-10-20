@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StockDataContext } from '../data/Data'
 
 const StockDetails = () => {
-  const marketStats = [
-    { label: 'Open', value: '$249.38' },
-    { label: 'Volume', value: '17.4M' },
-    { label: 'P/E Ratio', value: '37.82' },
-    { label: 'Market Cap', value: '$61.90' },
-    { label: '24H High', value: '$57.49' },
-    { label: '24H Low', value: '$55.20' },
-    { label: 'EPS (TTM)', value: '$6.59' },
-    { label: '3M High', value: '$61.90' },
+  const { stockData } = useContext(StockDataContext)
+  if (!stockData) return
+
+let marketStats = [];
+
+if (stockData) {
+  marketStats = [
+    { label: 'Open', value: stockData.o },
+    { label: 'Volume', value: stockData.v },
+    { label: 'P/E Ratio', value: stockData.pe },
+    { label: 'Market Cap', value: stockData.marketCap },
+    { label: '24H High', value: stockData.h },
+    { label: '24H Low', value: stockData.l },
+    { label: 'EPS (TTM)', value: stockData.eps },
+    { label: '3M High', value: stockData.high3m },
   ];
+}
 
   const assets = [
     { stock: 'Bitcoin', symbol: 'BTC', value: '$61,940.20', change: '+1.52%', img: 'icons/bitcoin.png', changeColor: 'text-green-500' },

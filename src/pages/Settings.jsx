@@ -80,9 +80,9 @@ const Settings = () => {
     );
 
     return (
-        <div className='relative z-[999] w-screen min-h-screen bg-[#161616] px-4 py-2'>
+        <div className='relative z-1 w-screen min-h-screen bg- px-4 py-2'>
             {/* Background */}
-            <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+            {/* <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
                 <div className='fixed top-0 left-0 bg-[#161616]/0 w-full z-1 h-screen'></div>
                 <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
                 <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
@@ -92,7 +92,7 @@ const Settings = () => {
                 <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
                 <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
                 <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
-            </div>
+            </div> */}
 
             <h1 className='text-7xl tracking-tighter mb-4 mt-3 text-[#161616]/80 font-bold'>Settings</h1>
 
@@ -140,7 +140,7 @@ const Settings = () => {
             }
 
             {/* Tab Options */}
-            <div className={`Tab-Options z-[9999999999] fixed w-full max-w-md h-auto left-0 bottom-0 px-4 pt-5 bg-[#161616] backdrop-blur-[10vh] rounded-t-4xl transform transition-all duration-300 ease-in-out
+            <div className={`Tab-Options z-50 fixed w-full max-w-md h-auto left-0 bottom-0 px-4 pt-5 bg-[#161616] backdrop-blur-[10vh] rounded-t-4xl transform transition-all duration-300 ease-in-out
                 ${openTab && !closing ? "translate-y-0" : "translate-y-full"}`}>
 
                 {openTab && (
