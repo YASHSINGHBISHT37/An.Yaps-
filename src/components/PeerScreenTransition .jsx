@@ -4,35 +4,44 @@ import { motion, AnimatePresence } from "framer-motion";
 import Home from "../../pages/Home";
 import Favourites from "../../pages/Favourites";
 import Explore from "../../pages/Explore";
-import Notify from "../../pages/Notify";
 import Settings from "../../pages/Settings";
+import Notify from "../../pages/Notify";
+
+import BottomNav from "../Navigation/BottomNav";
 
 const Transition = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [openNotify, setOpenNotify] = useState(false); // ✅ controls Notify overlay
 
   const navBtn = [
-    { name: "Home", component: <Home /> },
-    { name: "Favorites", component: <Favourites /> },
-    { name: "Explore", component: <Explore /> },
-    { name: "Notify", component: <Notify /> },
-    { name: "Settings", component: <Settings /> },
+    { name: "Home", page: <Home /> },
+    { name: "Favorites", page: <Favourites /> },
+    { name: "Explore", page: <Explore /> },
+    { name: "Settings", page: <Settings /> },
   ];
 
   const navigateTo = (newIndex) => {
-    if (newIndex === activeIndex) return; // Prevent re-click animation
+    if (newIndex === activeIndex) return;
     setDirection(newIndex > activeIndex ? 1 : -1);
     setActiveIndex(newIndex);
   };
 
   return (
-    <div className="relative w-screen h-screen bg-[#161616] overflow-hidden select-none">
-      {/* Background gradient lights */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute bg-white blur-2xl left-0 top-0 w-[80vh] h-80"></div>
-        <div className="absolute bg-blue-400 blur-3xl left-10 top-60 w-[60vh] h-60"></div>
-        <div className="absolute bg-blue-700 blur-3xl left-40 top-96 w-[60vh] h-60"></div>
-      </div>
+    <div className="relative w-screen h-screen z-1 bg-[#161616] overflow-hidden select-none">
+
+      {/* Background Layers */}
+      <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+                <div className='fixed top-0 left-0 bg-[#161616]/7 w-full h-screen'></div>
+                <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
+                <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-600 blur-2xl -left-10 rotate-18 -z-1 top-65 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-700 blur-2xl -left-10 rotate-18 -z-1 top-80 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
+                <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
+                <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
+            </div>
 
       {/* Animated Page Container */}
       <div className="relative h-full overflow-hidden">
@@ -50,47 +59,67 @@ const Transition = () => {
             }}
             custom={direction}
           >
-            {navBtn[activeIndex].component}
+            {navBtn[activeIndex].page}
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Bottom Navigation Bar */}
-      <nav className="w-full fixed z-[999999999] bottom-0 flex justify-around border-t border-white/20 bg-[#161616]/90 backdrop-blur-md py-3 rounded-t-3xl">
-        {navBtn.map((btn, i) => (
-          <button
-            key={btn.name}
-            onClick={() => navigateTo(i)}
-            className={`cursor-pointer px-4 py-2 rounded-2xl text-sm font-medium transition-all duration-300 ease-in-out ${
-              i === activeIndex
-                ? "bg-blue-600 text-white scale-105"
-                : "text-gray-400 hover:text-white"
-            }`}
-          >
-            {btn.name}
-          </button>
-        ))}
-      </nav>
+      {/* Notify Overlay */}
+      <AnimatePresence>
+        {openNotify && (
+          <>
+            {/* Background blur */}
+            <motion.div
+              key="overlay-bg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed top-0 left-0 w-screen h-screen bg-black z-20"
+              onClick={() => setOpenNotify(false)}
+            />
+
+            {/* Notify Sheet */}
+            <motion.div
+              key="notify-overlay"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ type: "spring", stiffness: 120, damping: 20 }}
+              className="fixed bottom-0 left-0 z-30 w-full h-[48vh] bg-[#161616] backdrop-blur-[1vh] border-t border-white/20 rounded-t-3xl p-4"
+            >
+              <Notify close={() => setOpenNotify(false)} />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Bottom Navigation */}
+      <BottomNav
+        setActivePage={(pageName) => {
+          if (pageName === "Notify") {
+            // ✅ Toggle behavior: open if closed, close if open
+            setOpenNotify((prev) => !prev);
+          } else {
+            setOpenNotify(false); // ✅ Close Notify when navigating elsewhere
+            const newIndex = navBtn.findIndex((btn) => btn.name === pageName);
+            if (newIndex !== -1) navigateTo(newIndex);
+          }
+        }}
+      />
     </div>
   );
 };
 
-// Real "Peer" Sliding Animation (side-by-side feeling)
 const slideVariants = {
   enter: (direction) => ({
     x: direction > 0 ? "100%" : "-100%",
-    opacity: 1,
-    position: "absolute",
   }),
   center: {
     x: 0,
-    opacity: 1,
-    position: "relative",
   },
   exit: (direction) => ({
     x: direction > 0 ? "-100%" : "100%",
-    opacity: 1,
-    position: "absolute",
   }),
 };
 

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const StockDataContext = createContext()
 
-export const StockDataProvider = ({ children, symbol }) => {
+export const StockDataProvider = ({ children }) => {
     const [stockData, setStockData] = useState(null)
     const [loading, setLoading] = useState(null)
 
@@ -13,9 +13,9 @@ export const StockDataProvider = ({ children, symbol }) => {
         if (!symbol) return;
         const data = async () => {
             try {
-                const res = await axios.get(`https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_Key}`)
-                const profileRes = await axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${API_Key}`)
-                const profileRes2 = await axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${symbol}&token=${API_Key}`)
+                const res = await axios.get(`https://finnhub.io/api/v1/quote?symbol=AAPL&token=${API_Key}`)
+                const profileRes = await axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=${API_Key}`)
+                const profileRes2 = await axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=AAPL&token=${API_Key}`)
 
                 setStockData({
                     ...res.data,

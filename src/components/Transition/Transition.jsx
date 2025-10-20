@@ -10,14 +10,14 @@ import Settings from "../../pages/Settings";
 import BottomNav from "../Navigation/BottomNav";
 
 const Transition = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [direction, setDirection] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(0)
+    const [direction, setDirection] = useState(0)
+    const [openNotify, setOpenNotify] = useState(false)
 
     const navBtn = [
         { name: "Home", page: <Home /> },
         { name: "Favorites", page: <Favourites /> },
         { name: "Explore", page: <Explore /> },
-        { name: "Notify", page: <Notify /> },
         { name: "Settings", page: <Settings /> },
     ];
 
@@ -64,18 +64,52 @@ const Transition = () => {
                 </AnimatePresence>
             </div>
 
+            <AnimatePresence>
+                {openNotify && (
+                    <>
+                        {/* Background blur */}
+                        <motion.div
+                            key="overlay-bg"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.5, }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed top-0 left-0 w-screen h-screen bg-[#161616] backdrop-blur-2xl z-20"
+                            onClick={() => setOpenNotify(false)}
+                        />
+
+                        {/* Notify Sheet */}
+                        <motion.div
+                            key="notify-overlay"
+                            initial={{ y: "100%", opacity: 1 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: "100%", opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 120, damping: 20 }}
+                            className="fixed bottom-0 left-0 z-30 w-full h-[48vh] bg-[#161616] backdrop-blur-[1vh] border-t border-white/20 rounded-t-3xl p-4"
+                        >
+                            <Notify close={() => setOpenNotify(false)} />
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
 
             <BottomNav
                 setActivePage={(pageName) => {
-                    const newIndex = navBtn.findIndex(btn => btn.name === pageName)
-                    if (newIndex !== -1) navigateTo(newIndex)
+                    if (pageName === 'Notify') {
+                        setOpenNotify((prev) => !prev)
+                    } else {
+                        setOpenNotify(false)
+                        const newIndex = navBtn.findIndex(btn => btn.name === pageName)
+                        if (newIndex !== -1) navigateTo(newIndex)
+                    }
+
                 }}
             />
 
 
 
 
-        </div>
+        </div >
     );
 };
 

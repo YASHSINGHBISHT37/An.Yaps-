@@ -7,7 +7,7 @@ import { StockDataContext } from '../data/Data'
 const Stock = () => {
     const [time, setGtime] = useState('1D')
     // const { stockData, loading } = useContext(StockDataContext)
-    if (!stockData) return
+    // if (!stockData) return
 
     const times = ['1D', '5D', '1M', '6M', 'YTD', '1Y', '5Y', 'MAX']
     const timeHighlighter = {
@@ -39,14 +39,14 @@ const Stock = () => {
                     <div className="Left mb-2">
 
                         <div className='flex justify-center items-center gap-1 h-8 mb-4'>
-                            <img src={stockData.logo} className='h-8 mr-1.5 mix-blend-difference' />
-                            <p className='text-[2.6vh] font-bold leading-5.5'>{stockData.name} ({stockData.ticker})</p>
+                            {/* <img src={stockData.logo} className='h-8 mr-1.5 mix-blend-difference' /> */}
+                            {/* <p className='text-[2.6vh] font-bold leading-5.5'>{stockData.name} ({stockData.ticker})</p> */}
                             <p className='opacity- text-[1.7vh] leading-6 font-bold bg-[#204630]/70 text-[#30a633] rounded-[.8vh] px-1'>+0.20%</p>
                             <p className='opacity- text-[1.6vh] leading-6 font-bold text-[#30a633] rounded-[.8vh] px-1'>$300.69 Today</p>
                         </div>
 
-                        {/* <h1 className='text-[7vh] leading-12'>${stockData.c}<span className='opacity-60 text-[2.8vh]'>.40</span></h1> */}
-                        <h1 className='text-[7vh] leading-12'>${stockData.c}<span className='opacity-60 text-[2.8vh]'></span></h1>
+                        <h1 className='text-[7vh] leading-12'><span className='opacity-60 text-[2.8vh]'>.40</span></h1>
+                        {/* <h1 className='text-[7vh] leading-12'>${stockData.c}<span className='opacity-60 text-[2.8vh]'></span></h1> */}
                         <p className='text-left text-[1.6vh] leading-2 opacity-50'>Wed 15, 11:12 PM UTC+5:30  · BTC</p>
 
                     </div>
