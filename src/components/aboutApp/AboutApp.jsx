@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutApp = () => {
+const AboutApp = ({letStart}) => {
 
 
   return (
@@ -27,7 +27,7 @@ const AboutApp = () => {
         <p className="leading-4 opacity-50 tracking-tight text-[2vh]">Master Stock Market on our advanced exchange platform.</p>
 
         <div className="Let's-Start-btn relative bg-gradient-to-r from-blue-100 via-blue-500 to-blue-950 w-full h-15 rounded-full flex items-center mt-8 border border-white/70 cursor-pointer
-        active:scale-94 transition-all duration-200 active:brightness-85" onClick={() => letStart()} >
+        active:scale-94 transition-all duration-200 active:brightness-85" onClick={letStart} >
 
           <h1 className="ml-8 text-[2vh] font-bold text-[#161616]/80">Let's start</h1>
 

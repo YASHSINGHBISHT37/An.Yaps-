@@ -1,6 +1,6 @@
 import React from "react";
 
-const Login = () => {
+const Login = ({ later }) => {
 
   const appleLogin = () => {
     console.log("Apple login clicked");
@@ -41,7 +41,7 @@ const Login = () => {
       </div>
 
       <div className="Skip pr-2 flex flex-col items-end space-y-[-1vh]">
-        <h1 className="text-[2vh] text-[#161616]/80 mr-2 tracking-tight active:scale-90 transition-all duration-150 ease-in-out font-bold cursor-pointer" onClick={() => skip()}>Skips</h1>
+        <h1 className="text-[2vh] text-[#161616]/80 mr-2 tracking-tight active:scale-90 transition-all duration-150 ease-in-out font-bold cursor-pointer" onClick={later}>Skips</h1>
       </div>
 
       <div className="Login-Section bg-[#161616/90 rounded-3xl p-6 pb-4">
@@ -57,13 +57,13 @@ const Login = () => {
               {btn.img && (
                 <img src={`icons/${btn.img}`} className={`w-6 h-6 opacity-80" alt="icon ${btn.img === 'apple.login.png' ? 'mix-blend-difference' : ''}`} />
               )}
-            <h1 className="text-[2vh] font-bold">{btn.label}</h1>
+              <h1 className="text-[2vh] font-bold">{btn.label}</h1>
             </div>
           ))}
         </div>
 
         <div className="Maybe-Later flex justify-center items-center opacity-60 mt-4 mb-2">
-          <p className="cursor-pointer active:scale-94 transition-all duration-150 ease-in-out underline" onClick={() => maybeLater()}>Maybe later</p>
+          <p className="cursor-pointer active:scale-94 transition-all duration-150 ease-in-out underline" onClick={later}>Maybe later</p>
         </div>
 
       </div>
