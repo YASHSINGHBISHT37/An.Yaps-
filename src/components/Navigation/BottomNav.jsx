@@ -29,7 +29,7 @@ const BottomNav = ({ openNotify, setActivePage }) => {
         Favorites: "121%",
         Explore: "243%",
         Notify: "363%",
-        Settings: "493%"
+        Settings: "491%"
     }
 
     return (
