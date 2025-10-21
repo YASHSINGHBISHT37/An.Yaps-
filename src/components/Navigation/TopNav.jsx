@@ -22,9 +22,9 @@ const TopNav = () => {
 
     return (
         <div className='Top-Nav z-[999] fixed w-screen h-auto pb-3 pt-4 px-4 flex justify-between items-center bg-[#161616]/0'>
-            <h1 className='font-bold mr-12 text-[#161616]/80 text-[2.2vh]'>Anynance<span className='font-normal'>®</span></h1>
+            {/* <h1 className='font-bold mr-12 text-[#161616]/80 text-[2.2vh]'>Anynance<span className='font-normal'>®</span></h1> */}
             {/* <h1 className='font-bold mr-12 text-[2.2vh]'>An<sup className='text-[1.6vh]'>2</sup>Ya<span className='font-normal'>®</span></h1> */}
-            {/* <a href="/"><h1 className='font-bold mr-12 text-[2.2vh] text-[#161616]/80'>An.Yaps<span className='font-normal'>®</span></h1></a> */}
+            <a href="/"><h1 className='font-bold mr-12 text-[2.2vh] text-[#161616]/80'>An.Yaps<span className='font-normal'>®</span></h1></a>
 
             <div className='flex items-center gap-4 opacity-90'>
                 <img src="icons/search.png" className='w-5.5 h-5.5 cursor-pointer mix-blend-difference' />

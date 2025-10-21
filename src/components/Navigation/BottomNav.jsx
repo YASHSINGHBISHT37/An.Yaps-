@@ -25,18 +25,18 @@ const BottomNav = ({ openNotify, setActivePage }) => {
     ]
 
     const navHighlighter = {
-        Home: "-1.5vh",
-        Favorites: "7.45vh",
-        Explore: "16.7vh",
-        Notify: "25.8vh",
-        Settings: "35.05vh"
+        Home: "-0.5vh",
+        Favorites: "8.2vh",
+        Explore: "17vh",
+        Notify: "25.6vh",
+        Settings: "34.5vh"
     }
 
     return (
-        <div className='Bottom-Nav fixed z-[99999] h-auto w-screen bottom-3 px-3 flex justify-center'>
-            <div className='Cont backdrop-blur-[1vh] bg-[#161616]/50 border-1 border-white/20 w-[100%] sm:w-[80%] md:w-[60%] lg:w-[22%] h-full rounded-[3vh] flex justify-between items-center px-3 py-[1.3vh]'>
+        <div className='Bottom-Nav fixed z-[99999] w-screen bottom-3 px-3 flex justify-center'>
+            <div className='Cont backdrop-blur-[1vh] bg-[#161616]/50 border-1 border-white/20 w-[44vh] h-auto rounded-[3vh] flex justify-between items-center px-3 py-[1.3vh]'>
             
-                <div className='highlight absolute z-[-1] bg-white/10 border-1 border-white/20 h-[56px] w-[66px] left-5 rounded-[2.2vh] transition-transform duration-400'
+                <div className='highlight absolute z-[-1] bg-white/10 border-1 border-white/20 h-[56px] w-[66px]     rounded-[2.2vh] transition-transform duration-400'
                     style={{
                         transform: navBtnClick ? `translateX(${navHighlighter[navBtnClick]})` : undefined
                     }}>
@@ -59,32 +59,6 @@ const BottomNav = ({ openNotify, setActivePage }) => {
                 ))}
 
             </div>
-
-            {/* <div className='Bar w-[100%] sm:w-[80%] md:w-[60%] lg:w-[22%] h-full bg-[#161616]/90 border border-white/20 rounded-[3vh] flex justify-between items-center px-3 py-[1.3vh]'>
-
-                <div className='highlight absolute z-[-1] bg-blue-600 h-[56px] w-[66px] left-5 rounded-[2.2vh] transition-transform duration-400'
-                    style={{
-                        transform: navBtnClick ? `translateX(${navHighlighter[navBtnClick]})` : undefined
-                    }}>
-                </div>
-
-                {navBtn.map((btn, i) => (
-
-                    <div key={i} className='relative cursor-pointer active:scale-50 transition-all duration-500 ease-in-out flex flex-col items-center gap-0.5 w-14' onClick={() => navClick(btn.label)}>
-                        <img src={`icons/${btn.img}.png`} className='h-5 mt-1' />
-
-                        {btn.label === 'Notify' && hasNotification && (
-                            <span
-                                className={`absolute top-0 right-3 w-[0.4rem] h-[0.4rem] bg-red-500 rounded-full border border-white/30 transition-all duration-500 ease-out transform scale-0 opacity-0
-                                    ${hasNotification ? 'scale-100 opacity-100' : ''}`}>
-                            </span>
-                        )}
-                        <p className='text-[1.4vh]'>{btn.label}</p>
-                    </div>
-
-                ))}
-
-            </div> */}
         </div >
     )
 }

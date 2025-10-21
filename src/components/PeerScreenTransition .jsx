@@ -1,126 +1,85 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Home from "../../pages/Home";
-import Favourites from "../../pages/Favourites";
-import Explore from "../../pages/Explore";
-import Settings from "../../pages/Settings";
-import Notify from "../../pages/Notify";
+const Favourites = () => {
+    const [favoritesStocks, setFavoritesStocks] = useState([
+        { stock: "Bitcoin", symbol: "BTC", value: "$61,940.20", change: "+1.52%", img: "icons/bitcoin.png", changeColor: "text-green-500" },
+        { stock: "Ethereum", symbol: "ETH", value: "$2,480.30", change: "-0.84%", img: "icons/ethereum.png", changeColor: "text-red-500" },
+        { stock: "Solana", symbol: "SOL", value: "$146.25", change: "+3.15%", img: "icons/solana.png", changeColor: "text-green-500" },
+        { stock: "Apple Inc.", symbol: "AAPL", value: "$228.10", change: "+0.45%", img: "icons/apple.png", changeColor: "text-green-500" },
+        { stock: "Bitcoin", symbol: "BTC", value: "$61,940.20", change: "+1.52%", img: "icons/bitcoin.png", changeColor: "text-green-500" },
+        { stock: "Ethereum", symbol: "ETH", value: "$2,480.30", change: "-0.84%", img: "icons/ethereum.png", changeColor: "text-red-500" },
+        { stock: "Solana", symbol: "SOL", value: "$146.25", change: "+3.15%", img: "icons/solana.png", changeColor: "text-green-500" },
+        { stock: "Apple Inc.", symbol: "AAPL", value: "$228.10", change: "+0.45%", img: "icons/apple.png", changeColor: "text-green-500" },
+        { stock: "Bitcoin", symbol: "BTC", value: "$61,940.20", change: "+1.52%", img: "icons/bitcoin.png", changeColor: "text-green-500" },
+        { stock: "Ethereum", symbol: "ETH", value: "$2,480.30", change: "-0.84%", img: "icons/ethereum.png", changeColor: "text-red-500" },
+        { stock: "Solana", symbol: "SOL", value: "$146.25", change: "+3.15%", img: "icons/solana.png", changeColor: "text-green-500" },
+        { stock: "Apple Inc.", symbol: "AAPL", value: "$228.10", change: "+0.45%", img: "icons/apple.png", changeColor: "text-green-500" },
 
-import BottomNav from "../Navigation/BottomNav";
+    ]);
 
-const Transition = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [openNotify, setOpenNotify] = useState(false); // ✅ controls Notify overlay
+    const removeStock = (index) => {
+        setFavoritesStocks((prev) => prev.filter((_, i) => i !== index));
+    };
 
-  const navBtn = [
-    { name: "Home", page: <Home /> },
-    { name: "Favorites", page: <Favourites /> },
-    { name: "Explore", page: <Explore /> },
-    { name: "Settings", page: <Settings /> },
-  ];
+    return (
+        <div className="relative z-10 w-full min-h-screen bg-[#f5f5f5] px-4 py-6">
+            <h1 className="text-5xl sm:text-6xl tracking-tight mb-8 mt-3 text-[#161616]/80 font-bold">
+                Favorites
+            </h1>
 
-  const navigateTo = (newIndex) => {
-    if (newIndex === activeIndex) return;
-    setDirection(newIndex > activeIndex ? 1 : -1);
-    setActiveIndex(newIndex);
-  };
+            <div className="Favorites w-full flex flex-col gap-3">
+                <AnimatePresence initial={false}>
+                    {favoritesStocks.map((item, i) => (
+                        <motion.div
+                            key={item.symbol + i}
+                            className="Stock relative border border-[#e5e5e5] bg-white rounded-2xl shadow-sm flex flex-col cursor-pointer overflow-hidden"
+                            drag="x"
+                            dragConstraints={{ left: 0, right: 0 }}
+                            dragElastic={0.2}
+                            onDragEnd={(e, info) => {
+                                if (info.offset.x < -120) removeStock(i);
+                            }}
+                            style={{ touchAction: "pan-y" }}
+                            whileDrag={{ backgroundColor: "rgba(255, 0, 0, 0.15)" }}
+                            exit={{
+                                opacity: 0,
+                                x: -300,
+                                position: "absolute",
+                                transition: { duration: 0.25, ease: "easeOut" },
+                            }}
+                            transition={{ type: "tween", ease: "easeOut", duration: 0 }}
+                            layout={false} // 🚫 disables re-layout animations
+                        >
+                            <div className="Cont flex justify-between px-4 py-3 rounded-2xl select-none">
+                                {/* Left side */}
+                                <div className="Left flex items-center">
+                                    <img src={item.img} alt={item.stock} className="w-10 h-10" />
+                                    <div className="ml-3">
+                                        <h1 className="text-[2.2vh] font-semibold">{item.stock}</h1>
+                                        <p className="text-gray-500 text-[1.8vh]">{item.symbol}</p>
+                                    </div>
+                                </div>
 
-  return (
-    <div className="relative w-screen h-screen z-1 bg-[#161616] overflow-hidden select-none">
+                                {/* Right side */}
+                                <div className="Right flex flex-col items-end">
+                                    <h1 className="text-[2vh] font-semibold">{item.value}</h1>
+                                    <p className={`text-[1.8vh] ${item.changeColor}`}>{item.change}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
 
-      {/* Background Layers */}
-      <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
-                <div className='fixed top-0 left-0 bg-[#161616]/7 w-full h-screen'></div>
-                <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
-                <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
-                <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
-                <div className="absolute bg-blue-600 blur-2xl -left-10 rotate-18 -z-1 top-65 w-[70vh] h-20"></div>
-                <div className="absolute bg-blue-700 blur-2xl -left-10 rotate-18 -z-1 top-80 w-[70vh] h-20"></div>
-                <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
-                <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
-                <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
             </div>
 
-      {/* Animated Page Container */}
-      <div className="relative h-full overflow-hidden">
-        <AnimatePresence initial={false} custom={direction}>
-          <motion.div
-            key={activeIndex}
-            className="absolute w-full h-full overflow-y-auto scrollbar-none"
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 350, damping: 40 },
-              opacity: { duration: 0.2 },
-            }}
-            custom={direction}
-          >
-            {navBtn[activeIndex].page}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Notify Overlay */}
-      <AnimatePresence>
-        {openNotify && (
-          <>
-            {/* Background blur */}
-            <motion.div
-              key="overlay-bg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed top-0 left-0 w-screen h-screen bg-black z-20"
-              onClick={() => setOpenNotify(false)}
-            />
-
-            {/* Notify Sheet */}
-            <motion.div
-              key="notify-overlay"
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: "100%", opacity: 0 }}
-              transition={{ type: "spring", stiffness: 120, damping: 20 }}
-              className="fixed bottom-0 left-0 z-30 w-full h-[48vh] bg-[#161616] backdrop-blur-[1vh] border-t border-white/20 rounded-t-3xl p-4"
-            >
-              <Notify close={() => setOpenNotify(false)} />
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-
-      {/* Bottom Navigation */}
-      <BottomNav
-        setActivePage={(pageName) => {
-          if (pageName === "Notify") {
-            // ✅ Toggle behavior: open if closed, close if open
-            setOpenNotify((prev) => !prev);
-          } else {
-            setOpenNotify(false); // ✅ Close Notify when navigating elsewhere
-            const newIndex = navBtn.findIndex((btn) => btn.name === pageName);
-            if (newIndex !== -1) navigateTo(newIndex);
-          }
-        }}
-      />
-    </div>
-  );
+            {favoritesStocks.length === 0 && (
+                <p className="text-center mt-10 text-gray-500 text-lg">
+                    No favorite stocks left 👋
+                </p>
+            )}
+        </div>
+    );
 };
 
-const slideVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? "100%" : "-100%",
-  }),
-  center: {
-    x: 0,
-  },
-  exit: (direction) => ({
-    x: direction > 0 ? "-100%" : "100%",
-  }),
-};
-
-export default Transition;
+export default Favourites;
