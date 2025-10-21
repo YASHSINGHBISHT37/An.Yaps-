@@ -1,4 +1,3 @@
-import { space } from 'postcss/lib/list'
 import React, { useState } from 'react'
 
 const BottomNav = ({ openNotify, setActivePage }) => {
@@ -13,7 +12,7 @@ const BottomNav = ({ openNotify, setActivePage }) => {
 
         setTimeout(() => {
             setHighlightScale(1)
-        }, 400)
+        }, 300)
     }
 
     const navBtn = [
@@ -24,42 +23,47 @@ const BottomNav = ({ openNotify, setActivePage }) => {
         { label: 'Settings', img: 'settings' }
     ]
 
+    // Horizontal highlight positions
     const navHighlighter = {
-        Home: "-0.5vh",
-        Favorites: "8.2vh",
-        Explore: "17vh",
-        Notify: "25.6vh",
-        Settings: "34.5vh"
+        Home: "0%",
+        Favorites: "121%",
+        Explore: "243%",
+        Notify: "363%",
+        Settings: "493%"
     }
 
     return (
-        <div className='Bottom-Nav fixed z-[99999] w-screen bottom-3 px-3 flex justify-center'>
-            <div className='Cont backdrop-blur-[1vh] bg-[#161616]/50 border-1 border-white/20 w-[44vh] h-auto rounded-[3vh] flex justify-between items-center px-3 py-[1.3vh]'>
-            
-                <div className='highlight absolute z-[-1] bg-white/10 border-1 border-white/20 h-[56px] w-[66px]     rounded-[2.2vh] transition-transform duration-400'
+        <div className='Bottom-Nav fixed z-[99999] w-screen bottom-3 flex justify-center'>
+            <div className='relative backdrop-blur-[1vh] bg-[#161616]/50 border border-white/20 w-[45vh] h-auto rounded-[3vh] flex justify-between items-center px-2.5 py-[1.5vh] overflow-hidden'>
+
+                {/* Highlight behind icons */}
+                <div
+                    className='highlight absolute z-0 bg-white/10 border border-white/20 h-[56px] w-[66px] rounded-[2.2vh] transition-all duration-400 ease-in-out'
                     style={{
-                        transform: navBtnClick ? `translateX(${navHighlighter[navBtnClick]})` : undefined
-                    }}>
-                </div>
+                        transform: `translateX(${navHighlighter[navBtnClick]}) scale(${highlightScale})`,
+                    }}
+                ></div>
 
                 {navBtn.map((btn, i) => (
-
-                    <div key={i} className='relative cursor-pointer active:scale-50 transition-all duration-500 ease-in-out flex flex-col items-center gap-0.5 w-14' onClick={() => navClick(btn.label)}>
+                    <div
+                        key={i}
+                        className='relative z-10 cursor-pointer active:scale-90 transition-all duration-300 ease-in-out flex flex-col items-center gap-0.5 w-[66px]'
+                        onClick={() => navClick(btn.label)}
+                    >
                         <img src={`icons/${btn.img}.png`} className='h-5 mt-1' />
 
                         {btn.label === 'Notify' && hasNotification && (
                             <span
-                                className={`absolute top-0 right-3 w-[0.4rem] h-[0.4rem] bg-red-500 rounded-full border border-white/30 transition-all duration-500 ease-out transform scale-0 opacity-0
-                                    ${hasNotification ? 'scale-100 opacity-100' : ''}`}>
-                            </span>
+                                className={`absolute top-0 right-3 w-[0.4rem] h-[0.4rem] bg-red-500 rounded-full border border-white/30 transition-all duration-500 ease-out`}
+                            ></span>
                         )}
+
                         <p className='text-[1.4vh]'>{btn.label}</p>
                     </div>
-
                 ))}
 
             </div>
-        </div >
+        </div>
     )
 }
 
