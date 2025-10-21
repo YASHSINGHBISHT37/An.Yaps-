@@ -26,7 +26,7 @@ const Login = ({ later }) => {
 
 
   return (
-    <div className="fixed z-[999998] w-screen h-screen bg-[#161616] p-4 px-2 flex flex-col justify-between">
+    <div className="fixed z-[999998] w-screen h-screen bg-[#161616] py-4 px-2 flex flex-col justify-between">
 
       {/* Background effects */}
       <div className="fixed -z-1">
@@ -41,16 +41,16 @@ const Login = ({ later }) => {
       </div>
 
       <div className="Skip pr-2 flex flex-col items-end space-y-[-1vh]">
-        <h1 className="text-[2vh] text-[#161616]/80 mr-2 tracking-tight active:scale-90 transition-all duration-150 ease-in-out font-bold cursor-pointer" onClick={later}>Skips</h1>
+        {/* <h1 className="text-[2vh] text-[#161616]/80 mr-2 tracking-tight active:scale-90 transition-all duration-150 ease-in-out font-bold cursor-pointer" onClick={later}>Skips</h1> */}
       </div>
 
-      <div className="Login-Section bg-[#161616/90 rounded-3xl p-6 pb-4">
-        <h1 className="text-[6vh] tracking-tighter leading-12">Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200  to-blue-600">An.Yasps.</span></h1>
+      <div className="Login-Section bg-[#161616/90 rounded-3xl p-4 pb-4">
+        <h1 className="text-[9vh] tracking-tighter leading-17 fon">Welcome <br /> to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-blue-600">An.Yasps.</span></h1>
 
         <div className="Logins space-y-3 mt-7">
 
           {loginBtn.map((btn, i) => (
-            <div key={i} className="btn relative bg-gradient-t bg-white text-[#161616] w-full h-14 rounded-full flex justify-center items-center
+            <div key={i} className="btn relative bg-gradient-t bg-white text-[#161616] w-full h-14 rounded-3xl flex justify-center items-center
               border border-white/30 cursor-pointer active:scale-92 transition-all duration-200 active:brightness-85 space-x-3"
               onClick={btn.fun}
             >
