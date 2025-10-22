@@ -7,14 +7,15 @@ import Login from "../src/components/Login";
 const App = () => {
   const [step, setStep] = useState(0)
 
-  const letStart = () => setStep(1)
-  const login = () => setStep(2)
+  // const letStart = () => setStep(1)
+  // const login = () => setStep(2)
 
   return (
     <div className="w-screen h-screen overflow-hidden select-none">
-      {step === 0 && <AboutApp letStart={letStart} />}
-      {step === 1 && <Login later={login} />}
-      {step === 2 && <Transition />}
+      {/* {step === 0 && <AboutApp letStart={letStart} />} */}
+      {/* {step === 1 && <Login later={login} />} */}
+      {/* {step === 2 && <Transition />} */}
+      <Transition/>
     </div>
   );
 };

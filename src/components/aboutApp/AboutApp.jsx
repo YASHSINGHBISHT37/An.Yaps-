@@ -4,10 +4,10 @@ const AboutApp = ({letStart}) => {
 
 
   return (
-    <div className="fixed z-[999999] w-screen h-screen bg-[#161616] p-4 flex flex-col justify-between">
+    <div className="relative w-screen h-screen bg-[#161616] p-4 flex flex-col justify-between">
 
       {/* Background effects */}
-      <div className="fixed -z-1">
+      <div className="fixed z-1">
         <div className="absolute bg-white blur-2xl -left-10 rotate-18 -z-1 -top-12 w-[80vh] h-80"></div>
         <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
         <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
@@ -18,9 +18,9 @@ const AboutApp = ({letStart}) => {
         <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
       </div>
 
-      <h1 className="font-bold text-[#161616]/80 mr-12 text-[2.2vh]">An.Yaps®</h1>
+      <h1 className="font-bold text-[#161616]/80 text-[2.2vh]">An.Yaps®</h1>
 
-      <div className="Section">
+      <div className="Section z-10">
         <h1 className="text-[11vh] leading-[9vh] mb-4 font-bold tracking-tight">
           Discover.<br />Trade.<br />Achieve.
         </h1>

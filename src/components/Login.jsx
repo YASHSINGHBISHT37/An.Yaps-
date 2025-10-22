@@ -26,10 +26,10 @@ const Login = ({ later }) => {
 
 
   return (
-    <div className="fixed z-[999998] w-screen h-screen bg-[#161616] py-4 px-2 flex flex-col justify-between">
+    <div className="relative w-screen h-screen bg-[#161616] py-4 px-2 flex flex-col justify-between">
 
       {/* Background effects */}
-      <div className="fixed -z-1">
+      <div className="fixed z-1">
         <div className="absolute bg-white blur-2xl -left-10 rotate-18 -z-1 -top-12 w-[80vh] h-80"></div>
         <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
         <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
@@ -44,7 +44,7 @@ const Login = ({ later }) => {
         {/* <h1 className="text-[2vh] text-[#161616]/80 mr-2 tracking-tight active:scale-90 transition-all duration-150 ease-in-out font-bold cursor-pointer" onClick={later}>Skips</h1> */}
       </div>
 
-      <div className="Login-Section bg-[#161616/90 rounded-3xl p-4 pb-4">
+      <div className="Login-Section bg-[#161616/90 rounded-3xl p-4 pb-4 z-10">
         <h1 className="text-[9vh] tracking-tighter leading-17 fon">Welcome <br /> to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-blue-600">An.Yasps.</span></h1>
 
         <div className="Logins space-y-3 mt-7">

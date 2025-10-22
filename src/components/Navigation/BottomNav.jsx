@@ -16,11 +16,11 @@ const BottomNav = ({ openNotify, setActivePage }) => {
     }
 
     const navBtn = [
-        { label: 'Home', img: 'home' },
-        { label: 'Favorites', img: 'favourite' },
-        { label: 'Explore', img: 'search' },
-        { label: 'Notify', img: 'notification' },
-        { label: 'Settings', img: 'settings' }
+        { label: 'Home', img: 'home', openImg: 'homeBold' },
+        { label: 'Favorites', img: 'favourite', openImg: 'starBold' },
+        { label: 'Explore', img: 'search', openImg: 'searchBold' },
+        { label: 'Notify', img: 'notification', openImg: 'notificationBold' },
+        { label: 'Settings', img: 'settings', openImg: 'settingsBold' }
     ]
 
     // Horizontal highlight positions
@@ -33,24 +33,25 @@ const BottomNav = ({ openNotify, setActivePage }) => {
     }
 
     return (
-        <div className='Bottom-Nav fixed z-[99999] w-screen bottom-3 flex justify-center'>
-            <div className='relative backdrop-blur-[1vh] bg-[#161616]/50 border border-white/20 w-[45vh] h-auto rounded-[3vh] flex justify-between items-center px-2.5 py-[1.5vh] overflow-hidden'>
+
+        <div className='Bottom-Nav fixed z-[99999] w-screen bottom-0 flex justify-center'>
+            <div className='relative backdrop-blur-[0vh] bg-gradient-to-b from-transparent via-[#161616]/80 to-[#161616]/80 bg-amber-00 borde border-white/30 w-full h-auto pb-3 pt-4 flex justify-around
+             items-center overflow-hidden'>
 
                 {/* Highlight behind icons */}
-                <div
-                    className='highlight absolute z-0 bg-white/10 border border-white/20 h-[56px] w-[66px] rounded-[2.2vh] transition-all duration-400 ease-in-out'
+                {/* <div className='highlight absolute z-0 bg-white/10 border border-white/20 h-[56px] w-[66px] rounded-[2.2vh] transition-all duration-400 ease-in-out'
                     style={{
                         transform: `translateX(${navHighlighter[navBtnClick]}) scale(${highlightScale})`,
-                    }}
-                ></div>
+                    }} >
+                </div> */}
 
                 {navBtn.map((btn, i) => (
                     <div
                         key={i}
-                        className='relative z-10 cursor-pointer active:scale-90 transition-all duration-300 ease-in-out flex flex-col items-center gap-0.5 w-[66px]'
+                        className='relative z-10 cursor-pointer active:scale-90 transition-all duration-300 ease-in-out flex flex-col items-center gap-1 w-[66px]'
                         onClick={() => navClick(btn.label)}
                     >
-                        <img src={`icons/${btn.img}.png`} className='h-5 mt-1' />
+                        {navBtnClick === btn.label ? (<img src={`icons/${btn.openImg}.png`} className='h-5 mt-1' />) : (<img src={`icons/${btn.img}.png`} className='h-5 mt-1' />)}
 
                         {btn.label === 'Notify' && hasNotification && (
                             <span
