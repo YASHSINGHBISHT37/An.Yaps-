@@ -32,7 +32,7 @@ const Favourites = () => {
     return (
         <div className="relative z-1 w-screen min-h-screen">
             <div className="Favorites w-full h-auto px-4">
-                
+
                 <div className="w-screen backdrop-blur-[0vh] bg-gradient-to-t from-[#161616]/0 via-[#161616]/90 to-[#161616] fixed top-0 left-0 z-50 flex items-center px-6 py-2">
                     <h1 className="text-[5vh] text-white tracking-tight ">Favorites</h1>
                 </div>

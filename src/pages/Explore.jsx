@@ -9,13 +9,19 @@ const Explore = () => {
   return (
     <div className='w-screen h-screen'>
 
-      <div className="w-screen backdrop-blur-[0vh] bg-[#161616] fixed top-0 left-0 z-50 flex items-center px-3 py-2 space-x-2">
-        <h1 className="text-[3vh] text-white">Explore</h1>
+      {/* <div className="w-screen backdrop-blur-[0vh] bg-[#161616] fixed top-0 left-0 z-50 flex items-center px-3 py-2 space-x-2">
+        <h1 className="text-[4vh] text-white">Explore</h1>
+      </div> */}
+
+      <div className="w-screen backdrop-blur-[0vh] bg-gradient-to-t from-[#161616] via-[#161616] to-[#161616] top-0 left-0 z-50 flex items-center px-6 py-2">
+        <h1 className="text-[4vh] text-white tracking-tight ">Explore</h1>
       </div>
 
       <div className='mt-17 w-screen '>
-        <Input/>
-        
+        <div className='fixed top-20 z-50'>
+          <Input />
+
+        </div>
 
 
         <div className='Top-Stock pt-20 px-4'>
@@ -37,11 +43,11 @@ const Explore = () => {
                   <p className='text-green-500'>+1000%</p>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
+
+
       </div>
 
     </div>

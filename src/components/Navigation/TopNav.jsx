@@ -26,23 +26,7 @@ const TopNav = () => {
             {/* <h1 className='font-bold mr-12 text-[2.2vh]'>An<sup className='text-[1.6vh]'>2</sup>Ya<span className='font-normal'>®</span></h1> */}
             <a href="/"><h1 className='font-bold mr-12 text-[2.2vh]'>An.Yaps<sup className='font-normal text-[1.6vh]'>®</sup></h1></a>
 
-            <div className='flex items-center gap-4 opacity-90 bg-amber-00 w-full'>
-                {/* <img src="icons/search.png" className='w-5.5 h-5.5 cursor-pointer mix-blend-difference' /> */}
-
-                {/* 
-                <div className={`Themes cursor-pointer relative border rounded-2xl text-[1.6vh] w-14 h-6 text-center overflow-hidden active:scale-80 transition-all duration-250
-                    ${theme === 'Light' ? 'bg-transparent text-[#161616] border-[#161616]/70 transition-all duration-250 ' : 'border-0 bg-[#161616]/94 text-white border-white/50 transition-all duration-250 '}
-                `} onClick={toggleTheme}>
-
-                    <div className={`transition-all duration-300 ease-in-out pt-[0.2vh] ${theme === 'Dark' ? 'mt-0' : 'mt-[-2.5vh]'}`}>
-                        <p>Dark</p>
-                        <p>Light</p>
-                    </div>
-
-                </div> */}
-
-            </div>
-
+            {/* <img src="icons/notification.png" className='w-5.5 h-5.5 cursor-pointer mix-blend-difference' /> */}
         </div >
     )
 }
