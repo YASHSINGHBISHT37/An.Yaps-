@@ -81,9 +81,9 @@ const Settings = () => {
     return (
         <div className='relative z-1 w-screen min-h-screen bg- '>
             {/* Background */}
-            {/* <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+            <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
                 <div className='fixed top-0 left-0 bg-[#161616]/0 w-full z-1 h-screen'></div>
-                <div className="absolute bg-white blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
+                <div className="absolute bg-[#161616] blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
                 <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
                 <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
                 <div className="absolute bg-blue-600 blur-2xl -left-10 rotate-18 -z-1 top-65 w-[70vh] h-20"></div>
@@ -91,7 +91,7 @@ const Settings = () => {
                 <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
                 <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
                 <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
-            </div> */}
+            </div>
 
             {/* Profile */}
             <div className="Profile fixed top-0 left-0 z-1 bg-gradient-to-t from-[#161616]/0 via-[#161616] to-[#161616] w-screen h-auto p-4 flex flex-col space-y-3 pb-6">
@@ -99,7 +99,8 @@ const Settings = () => {
 
                 <div className='flex items-center justify-between'>
                     <div className='bg-red-00 w-80 md:w-80'>
-                        <p className="text-[5vh] tracking-tight leading-10 capitalize">Ananya Chakravarty</p>
+                        {/* <p className="text-[5vh] tracking-tight leading-10 capitalize">Ananya Chakravarty</p> */}
+                        <p className="text-[5vh] tracking-tight leading-10 capitalize">Yash Singh Bisht</p>
                     </div>
 
                     <div className='border border-white/30 rounded-full w-18 h-18 p-3'>

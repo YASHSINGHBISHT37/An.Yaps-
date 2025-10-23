@@ -26,7 +26,7 @@ const Login = ({ later }) => {
 
 
   return (
-    <div className="relative w-screen h-screen bg-[#161616] py-4 px-2 flex flex-col justify-between">
+    <div className="relative z-40 w-screen h-screen bg-[#161616] py-4 px-2 flex flex-col justify-between">
 
       {/* Background effects */}
       <div className="fixed z-1">

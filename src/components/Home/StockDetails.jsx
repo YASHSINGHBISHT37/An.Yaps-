@@ -25,7 +25,7 @@ const StockDetails = () => {
   ];
 
   return (
-    <div className="Stock-Details pt-110 relative w-screen h-auto pointer-events-none z-[50]">
+    <div className="Stock-Details pt-110 relative w-screen h-auto pointer-events-none z-[50] px-2">
       <div className="cont z-[999] relative w-full h-full mt-32 rounded-t-3xl py-14 flex flex-col gap-4
                       bg-[#272627] border-t border-white/30 text-white">
         <div className="bar absolute left-1/2 top-4 w-20 h-[0.4vh] bg-white rounded-full transform -translate-x-1/2"></div>

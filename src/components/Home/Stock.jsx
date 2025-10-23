@@ -32,6 +32,18 @@ const Stock = () => {
     return (
         <div className='fixed top-14 w-screen h-auto'>
 
+            <div className='Background-Gradient fixed -z-1 w-screen h-screen'>
+                <div className='fixed top-0 left-0 bg-[#161616]/0 w-full z-1 h-screen'></div>
+                <div className="absolute bg-[#161616] blur-2xl -left-15 rotate-18 -z-1 -top-17 w-[90vh] h-80"></div>
+                <div className="absolute bg-blue-300 blur-2xl -left-10 rotate-18 -z-1 top-38 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-500 blur-2xl -left-10 rotate-18 -z-1 top-50 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-600 blur-2xl -left-10 rotate-18 -z-1 top-65 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-700 blur-2xl -left-10 rotate-18 -z-1 top-80 w-[70vh] h-20"></div>
+                <div className="absolute bg-blue-900 blur-2xl -left-10 rotate-18 -z-1 top-94 w-[70vh] h-20"></div>
+                <div className="absolute move bg-[#161616] blur-[5vh] rounded-full -left-40 -z-1 top-70 w-90 h-70"></div>
+                <div className="absolute bg-[#161616] blur-2xl -left-40 rotate-18 -z-10 top-110 w-[90vh] h-full"></div>
+            </div>
+
             <div className='w-full h-full mt-5 px-4 rounded-4xl border- border-white/30 py-4 flex flex-col items-center gap-2'>
 
                 <div className="Price z-50 data w-full h-auto flex justify-between items-start bg-amber-00 pointer-events-none">
@@ -44,7 +56,7 @@ const Stock = () => {
                             <p className='opacity- text-[1.6vh] leading-6 font-bold text-[#30a633] rounded-[.8vh] px-1'>$300.69 Today</p>
                         </div>
 
-                        <h1 className='text-[7vh] leading-12'>$200<span className='opacity-60 text-[2.8vh]'>.24</span></h1>
+                        <h1 className='text-[7vh] leading-12'>$2,000<span className='opacity-60 text-[2.8vh]'>.24</span></h1>
                         <p className='text-left text-[1.6vh] leading-3 opacity-50'>Wed 15, 11:12 PM UTC+5:30  · BTC</p>
                     </div>
 

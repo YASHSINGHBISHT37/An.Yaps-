@@ -19,13 +19,13 @@ const Transition = () => {
         { name: "Favorites", page: <Favourites /> },
         { name: "Explore", page: <Explore /> },
         { name: "Settings", page: <Settings /> },
-    ];
+    ]
 
     const navigateTo = (newIndex) => {
         if (newIndex === activeIndex) return;
         setDirection(newIndex > activeIndex ? 1 : -1);
         setActiveIndex(newIndex);
-    };
+    }
 
     return (
         <div className="relative w-screen z-1 h-screen bg-[#161616] bg-blue overflow-hidden select-none">
@@ -85,7 +85,7 @@ const Transition = () => {
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: "100%", opacity: 1 }}
                             transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                            className="fixed bottom-0 left-0 z-[999999] w-full h-[45vh] p-3"
+                            className="fixed bottom-0 left-0 z-[999999] w-full h-[45vh] p-4"
                         >
                             <Notify close={() => setOpenNotify(false)} />
                         </motion.div>
@@ -106,12 +106,9 @@ const Transition = () => {
                 }}
             />
 
-
-
-
         </div >
-    );
-};
+    )
+}
 
 const slideVariants = {
     enter: (direction) => ({
@@ -123,6 +120,6 @@ const slideVariants = {
     exit: (direction) => ({
         x: direction > 0 ? "-100%" : "100%",
     }),
-};
+}
 
 export default Transition;

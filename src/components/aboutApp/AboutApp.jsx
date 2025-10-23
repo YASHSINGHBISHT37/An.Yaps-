@@ -4,7 +4,7 @@ const AboutApp = ({letStart}) => {
 
 
   return (
-    <div className="relative w-screen h-screen bg-[#161616] p-4 flex flex-col justify-between">
+    <div className="relative w-screen h-screen bg-[#161616] p-4 flex flex-col justify-between z-50">
 
       {/* Background effects */}
       <div className="fixed z-1">

@@ -6,7 +6,7 @@ const Notify = ({ close }) => {
     <div className="relative w-full h-full flex flex-col border border-white/20 rounded-3xl py-4 bg-[#161616]">
 
       <AnimatePresence>
-        <div className="flex justify-between items-start px-4 overflow-auto px-2 border-b border-white/30">
+        <div className="flex justify-between items-start px-4 overflow-auto border-b border-white/30">
           <motion.h1
             key='Notification'
             initial={{ opacity: 0, y: 50 }}
