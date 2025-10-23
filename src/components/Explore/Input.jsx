@@ -22,16 +22,12 @@ const Input = () => {
                 // Fetch company logos for top 5 results (to avoid spamming API)
                 const withLogos = await Promise.allSettled(
                     results.slice(0, 5).map(async (stock) => {
-                        const logoRes = await axios.get(
-                            `https://finnhub.io/api/v1/stock/profile2?symbol=${stock.displaySymbol}&token=${API}`
-                        );
+                        const logoRes = await axios.get(`https://finnhub.io/api/v1/stock/profile2?symbol=${stock.displaySymbol}&token=${API}`)
                         return { ...stock, logo: logoRes.data.logo || null };
                     })
-                );
+                )
 
-                setSuggestions(
-                    withLogos.filter((r) => r.status === "fulfilled").map((r) => r.value)
-                );
+                setSuggestions(withLogos.filter((r) => r.status === "fulfilled").map((r) => r.value))
 
             } catch (error) {
                 console.log('Error fetching stock suggestions:', error)

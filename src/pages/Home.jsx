@@ -6,15 +6,9 @@ import TopNav from '../components/Navigation/TopNav'
 const Home = () => {
     return (
         <div className='w-screen h-screen z-[999997] bg- select-none'>
-
-            {/* <AboutApp /> */}
-            {/* <Login/> */}
-
             <TopNav/>
-
-            {/* <Stock /> */}
-            {/* <StockDetails /> */}
-
+            <Stock />
+            <StockDetails />
         </div>
     )
 }
